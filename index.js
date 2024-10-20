@@ -28,7 +28,7 @@ function createCurrentTimerContainer() {
 
     let hoursSPan = createSpanWithTextContent("hh")
     divWordsWrapper.appendChild(hoursSPan);
-
+    divWordsWrapper.r
     let colonSpan = createSpanWithTextContent(":")
     let colonSpan2 = colonSpan.cloneNode(true);
     divWordsWrapper.appendChild(colonSpan)
@@ -39,6 +39,11 @@ function createCurrentTimerContainer() {
 
     let secondsSPan = createSpanWithTextContent("ss");
     divWordsWrapper.appendChild(secondsSPan);
+
+    let timerIsUp = document.createElement("p");
+    timerIsUp.textContent = "Timer is Up!";
+    timerIsUp.classList.add("time-up-msg")
+    divWordsWrapper.appendChild(timerIsUp);
 
     timerDiv.appendChild(divWordsWrapper);
 
@@ -56,6 +61,13 @@ function createCurrentTimerContainer() {
         deleteTimer(deleteButton, noTimerElement);
     }
 
+    // timerDiv.onclick = function() {
+    //     timerDiv.toggleAttribute("time-up");
+    //     divWordsWrapper.style.display = "none";
+    //     deleteButtonContainer.display = "none";
+    //     timerIsUp.style.display = "block";
+    // }
+
     noTimerElement.style.display = "none";
     return timerDiv;
 }
@@ -71,7 +83,5 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("loaded");
 
     let setTimerButton = document.getElementById("set");
-    console.log(setTimerButton);
     setTimerButton.onclick = createTimer
-
 });

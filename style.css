@@ -60,18 +60,19 @@ main {
     background-color: #f0f757;
 }
 
-#time-up {
+.time-up {
     background-color: #f0f757;
     color: #000;
     display: none;
 }
 
-#time-up p{
+.time-up-msg{
    font-size: 16px;
    font-weight: bold;
    width: 100%;
    display: flex;
    justify-content: end;
+   display: none;
 }
 
 .stop-btn-container button{
@@ -92,5 +93,4 @@ main {
 
 #no-timers {
     margin-top: 2rem;
-    /* display: block; */
 }
