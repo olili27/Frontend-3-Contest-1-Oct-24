@@ -39,6 +39,18 @@ function onSpanValueChange(span, defaultValue) {
     }
 }
 
+function convertToMilliSeconds(unit, value) {
+    value = parseInt(value);
+
+    if(unit === "hh") {
+        return value * 60 * 60 * 60;
+    } else if(unit === "mm") {
+        return value * 60 * 60;
+    } else if(unit === "ss") {
+        return value * 60;
+    }
+}
+
 function createNewTimerContainer() {
     let timerDiv = document.createElement("div");
     timerDiv.classList.add("timer-container");
