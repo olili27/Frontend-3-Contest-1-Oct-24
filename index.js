@@ -47,7 +47,6 @@ function createCurrentTimerContainer() {
     timerDiv.classList.add("new-timer");
 
     let {hours, minutes, seconds} = getNewTimerDetails()
-    console.log(hours, minutes, seconds);
     
     let divWordsWrapper = document.createElement("div");
     divWordsWrapper.classList.add("words");
@@ -108,6 +107,13 @@ function createTimer() {
     currentTimersSection.appendChild(newTimer)
 }
 
+function ensureDigitsOnly(span) {
+    let textContentArray = [...span.textContent];
+    if(!((textContentArray.length > 0) && (textContentArray.every((char) => char >= "0" && char <= "9")))) {
+        span.textContent = "";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let hoursSpan = document.getElementById("hours");
     let minutesSpan = document.getElementById("minutes");
@@ -123,6 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     secondsSpan.onblur = function () {
       onSpanValueChange(secondsSpan, "ss");
+    };
+
+    hoursSpan.oninput = function () {
+      ensureDigitsOnly(hoursSpan);
+    };
+
+    minutesSpan.oninput = function () {
+      ensureDigitsOnly(minutesSpan);
+    };
+
+    secondsSpan.oninput = function () {
+      ensureDigitsOnly(secondsSpan);
     };
 
     let setTimerButton = document.getElementById("set");
