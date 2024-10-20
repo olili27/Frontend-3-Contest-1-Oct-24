@@ -3,7 +3,6 @@
 function createSpanWithTextContent(textContent) {
     let span = document.createElement("span");
     span.textContent = textContent;
-    // span.classList.add()
     return span
 }
 
@@ -32,7 +31,6 @@ function onSpanValueChange(span, defaultValue) {
     }
 
     let id = span.id;
-console.log(id);
 
     if(id == "hours") {
         span.textContent = Math.min(textContent, 23)
@@ -41,7 +39,7 @@ console.log(id);
     }
 }
 
-function createCurrentTimerContainer() {
+function createNewTimerContainer() {
     let timerDiv = document.createElement("div");
     timerDiv.classList.add("timer-container");
     timerDiv.classList.add("new-timer");
@@ -53,6 +51,10 @@ function createCurrentTimerContainer() {
 
     let timeLeftSPan = createSpanWithTextContent("Time Left:");
     divWordsWrapper.appendChild(timeLeftSPan);
+    
+    if(!isValid(hours) || !isValid(minutes) || !isValid(seconds)) {
+        return;
+    }
 
     let hoursSPan = createSpanWithTextContent(hours)
     divWordsWrapper.appendChild(hoursSPan);
@@ -103,13 +105,18 @@ function createCurrentTimerContainer() {
 function createTimer() {
     let currentTimersSection = document.querySelector(".current-timers");
 
-    let newTimer = createCurrentTimerContainer()
+    let newTimer = createNewTimerContainer()
     currentTimersSection.appendChild(newTimer)
+}
+
+function isValid(textContent) {
+    let textContentArray = [...textContent]
+    return (textContentArray.length > 0) && (textContentArray.every((char) => char >= "0" && char <= "9"))
 }
 
 function ensureDigitsOnly(span) {
     let textContentArray = [...span.textContent];
-    if(!((textContentArray.length > 0) && (textContentArray.every((char) => char >= "0" && char <= "9")))) {
+    if(!isValid(span.textContent)) {
         span.textContent = "";
     }
 }
