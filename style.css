@@ -63,6 +63,7 @@ main {
 #time-up {
     background-color: #f0f757;
     color: #000;
+    display: none;
 }
 
 #time-up p{
@@ -89,6 +90,7 @@ main {
     border-radius: 50px;
 }
 
-.no-timers {
+#no-timers {
     margin-top: 2rem;
+    /* display: block; */
 }
