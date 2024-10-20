@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    background-color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container {
+    margin-top: 1.5rem;
+    background-color: #34344a;
+    width: 25rem;
+    padding: 1rem 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+    gap: 2rem;
+}
+
+.timer-container .words {
+    /* background-color: blue; */
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer-container .words span:first-child {
+    margin-right: 2rem;
+}
+
+.timer-btn-container {
+    width: 5rem;
+}
+
+.timer-btn-container button {
+    width: 100%;
+    border-radius: 50px;
+    padding: 10px 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f757;
+}
+
+#time-up {
+    background-color: #f0f757;
+    color: #000;
+}
+
+#time-up p{
+   font-size: 16px;
+   font-weight: bold;
+   width: 100%;
+   display: flex;
+   justify-content: end;
+}
+
+.stop-btn-container button{
+    background-color: #34344a;
+    color: #fff;
+}
+
+.current-timers-title {
+    margin-top: 1.5rem;
+    background-color: #39393e;
+    padding:7px 1.5rem ;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.no-timers {
+    margin-top: 2rem;
+}
